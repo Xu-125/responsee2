@@ -14,8 +14,6 @@
       -webkit-font-smoothing: antialiased;
       background: #fff; color: #000; overflow-x: hidden;
     }
-
-    /* ── entrance ── */
     @keyframes fadeUp {
       from { opacity:0; transform:translateY(14px); }
       to   { opacity:1; transform:translateY(0); }
@@ -24,8 +22,6 @@
     .d1{animation-delay:.05s} .d2{animation-delay:.12s}
     .d3{animation-delay:.19s} .d4{animation-delay:.26s}
     .d5{animation-delay:.33s}
-
-    /* ── role tabs ── */
     .role-wrap {
       position: relative; display: flex;
       border-bottom: 1px solid #f0f0f0;
@@ -46,8 +42,6 @@
       transition: left .36s var(--ease-quart), width .36s var(--ease-quart);
       pointer-events: none;
     }
-
-    /* ── textarea ── */
     textarea {
       resize: none; border: none; outline: none;
       background: transparent; caret-color: #000;
@@ -55,8 +49,6 @@
     textarea::placeholder { color: #e4e4e4; }
     .input-line { height:1px; background:#f0f0f0; transition:background .3s ease; }
     .input-wrap:focus-within .input-line { background: #000; }
-
-    /* ── buttons ── */
     .btn {
       cursor: pointer; font-family: inherit;
       letter-spacing: .1em; text-transform: uppercase;
@@ -79,11 +71,7 @@
       display:inline-flex; align-items:center; gap:4px;
     }
     .btn-ghost:hover { color:#000; transform:translateY(-1px); }
-
-    /* ── divider ── */
     .vdiv { width:1px; background:#f0f0f0; align-self:stretch; margin:0 52px; flex-shrink:0; }
-
-    /* ── AI status pill ── */
     .ai-pill {
       display: inline-flex; align-items: center; gap: 7px;
       padding: 5px 14px; border: 1px solid #f0f0f0;
@@ -108,8 +96,6 @@
       0%,100%{ box-shadow:0 0 0 0 rgba(245,158,11,.4); }
       50%    { box-shadow:0 0 0 4px rgba(245,158,11,0); }
     }
-
-    /* ── loading bars ── */
     .bar-wrap { display:flex; align-items:flex-end; gap:3px; height:20px; }
     @keyframes bb {
       0%,100%{transform:scaleY(.2);opacity:.2}
@@ -121,8 +107,6 @@
     .bar:nth-child(3){animation-delay:.3s}
     .bar:nth-child(4){animation-delay:.45s}
     .bar:nth-child(5){animation-delay:.6s}
-
-    /* ── result ── */
     @keyframes resultIn {
       from{opacity:0;transform:translateY(10px)}
       to{opacity:1;transform:translateY(0)}
@@ -134,8 +118,6 @@
       font-size:52px; line-height:1; color:#f0f0f0;
       font-family:Georgia,serif; pointer-events:none; user-select:none;
     }
-
-    /* ── badge ── */
     .badge {
       font-size:9px; letter-spacing:.2em; text-transform:uppercase;
       padding:3px 10px; border:1px solid;
@@ -146,25 +128,18 @@
     .badge-eq::before { background:#000; }
     .badge-crazy { border-color:#dc2626; color:#dc2626; }
     .badge-crazy::before { background:#dc2626; animation:bb .7s infinite; }
-
-    /* ── shake ── */
     @keyframes shake {
       0%,100%{transform:translateX(0)}
       20%{transform:translateX(-5px)} 40%{transform:translateX(5px)}
       60%{transform:translateX(-3px)} 80%{transform:translateX(3px)}
     }
     .shake { animation: shake .4s ease; }
-
-    /* ── error ── */
     .err-box {
-      display:none; padding:12px 16px;
+      padding:12px 16px;
       border-left:2px solid #ef4444;
       background:#fff9f9;
     }
-    .err-box.show { display:block; }
     .err-box p { font-size:12px; color:#ef4444; margin:0; letter-spacing:.02em; line-height:1.6; }
-
-    /* ── retry btn ── */
     .retry-btn {
       font-size:10px; letter-spacing:.1em; text-transform:uppercase;
       background:none; border:1px solid #ef4444; color:#ef4444;
@@ -173,8 +148,6 @@
       transition:background .2s, color .2s;
     }
     .retry-btn:hover { background:#ef4444; color:#fff; }
-
-    /* ── toast ── */
     #toast {
       position:fixed; bottom:28px; left:50%;
       transform:translateX(-50%) translateY(50px);
@@ -187,17 +160,12 @@
     }
     #toast::before { content:'✓'; }
     #toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
-
-    /* ── char count ── */
     #charCount { transition:color .25s; }
-
-    /* ── streaming cursor ── */
     .cursor::after {
       content:'|'; animation:blink .7s step-end infinite;
       color:#000; margin-left:1px;
     }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
     @media(max-width:768px){
       .main-grid { flex-direction:column!important; }
       .vdiv { display:none; }
@@ -207,7 +175,6 @@
 </head>
 <body>
 
-<!-- ══════════ HEADER ══════════ -->
 <header style="padding:60px 0 40px; text-align:center;">
   <p class="fu d1"
      style="font-size:10px;letter-spacing:.28em;color:#c8c8c8;text-transform:uppercase;margin:0 0 10px;">
@@ -221,8 +188,6 @@
      style="font-size:12px;color:#c0c0c0;font-weight:300;letter-spacing:.06em;margin:0 0 22px;">
     想说的话，让我来说。
   </p>
-
-  <!-- AI status pill -->
   <div class="fu d4">
     <div class="ai-pill">
       <span class="ai-dot" id="aiDot"></span>
@@ -231,7 +196,6 @@
   </div>
 </header>
 
-<!-- ══════════ MAIN ══════════ -->
 <main style="max-width:1000px;margin:0 auto;padding:0 36px 90px;">
   <div class="main-grid fu d5" style="display:flex;align-items:flex-start;">
 
@@ -242,7 +206,7 @@
         对象 / Who
       </p>
 
-      <!-- role tabs -->
+      <!-- ↓ 删除了室友、相亲 -->
       <div class="role-wrap" id="roleWrap" style="margin-bottom:30px;">
         <div class="role-bar" id="roleBar"></div>
         <button class="role-tab active" data-role="同事">同事</button>
@@ -252,8 +216,6 @@
         <button class="role-tab" data-role="朋友">朋友</button>
         <button class="role-tab" data-role="老师">老师</button>
         <button class="role-tab" data-role="甲方">甲方</button>
-        <button class="role-tab" data-role="室友">室友</button>
-        <button class="role-tab" data-role="相亲">相亲</button>
       </div>
 
       <p style="font-size:9px;letter-spacing:.22em;color:#d0d0d0;text-transform:uppercase;margin:0 0 14px;">
@@ -287,7 +249,6 @@
       </p>
     </div>
 
-    <!-- ── divider ── -->
     <div class="vdiv"></div>
 
     <!-- ── RIGHT ── -->
@@ -297,14 +258,12 @@
         翻译 / Output
       </p>
 
-      <!-- placeholder -->
       <div id="stPlaceholder">
         <p style="font-size:19px;font-weight:300;color:#ebebeb;line-height:1.7;margin:0;">
           翻译结果在这里出现...
         </p>
       </div>
 
-      <!-- loading -->
       <div id="stLoading" style="display:none;padding-top:6px;">
         <div class="bar-wrap">
           <div class="bar"></div><div class="bar"></div>
@@ -317,15 +276,13 @@
         </p>
       </div>
 
-      <!-- error -->
       <div id="stError" style="display:none;flex-direction:column;">
-        <div class="err-box show">
+        <div class="err-box">
           <p id="errMsg">网络异常，请稍后重试。</p>
           <button class="retry-btn" onclick="translate(lastMode)">重试</button>
         </div>
       </div>
 
-      <!-- result -->
       <div id="stResult" style="display:none;flex-direction:column;">
         <div id="resultBadge" style="margin-bottom:18px;"></div>
         <div class="quote-wrap" style="min-height:80px;">
@@ -348,7 +305,6 @@
     </div>
   </div>
 
-  <!-- footer -->
   <div style="margin-top:80px;display:flex;align-items:center;gap:20px;">
     <div style="flex:1;height:1px;background:#f8f8f8;"></div>
     <span style="font-size:9px;letter-spacing:.18em;color:#e8e8e8;">@zeyi</span>
@@ -358,11 +314,10 @@
 
 <div id="toast">已复制到剪贴板</div>
 
-<!-- ══════════ SCRIPT ══════════ -->
 <script>
 
 /* ─────────────────────────────────────
-   ROLE CONFIG
+   ROLE CONFIG — 删除了室友、相亲
 ───────────────────────────────────── */
 const ROLE_DESC = {
   同事: '平级同事，日常工作协作关系，互相平等',
@@ -372,8 +327,6 @@ const ROLE_DESC = {
   朋友: '普通朋友，平等的社交关系，可以直接但不能伤感情',
   老师: '老师或教授，有权威性，需要尊重但也要维护自己',
   甲方: '甲方客户，存在服务和被服务关系，需要专业周到',
-  室友: '合租室友，共同生活但非亲密，需要保持边界',
-  相亲: '相亲对象，刚认识，关系尚未建立，需要得体自然',
 };
 
 const PLACEHOLDERS = {
@@ -384,8 +337,6 @@ const PLACEHOLDERS = {
   朋友: '比如：感觉你只有有事才找我...',
   老师: '比如：这门课完全听不懂但不敢说...',
   甲方: '比如：改了这么多版还要改我快崩了...',
-  室友: '比如：半夜能不能别这么吵...',
-  相亲: '比如：没感觉想提前结束...',
 };
 
 /* ─────────────────────────────────────
@@ -425,7 +376,6 @@ function buildPrompt(input, role, mode) {
 
 /* ─────────────────────────────────────
    AI CALL — Pollinations（免费，无需Key）
-   文档：https://text.pollinations.ai/
 ───────────────────────────────────── */
 async function callAI(input, role, mode) {
   const body = {
@@ -433,10 +383,10 @@ async function callAI(input, role, mode) {
       { role: 'system', content: SYSTEM_PROMPT },
       { role: 'user',   content: buildPrompt(input, role, mode) },
     ],
-    model:       'openai',           // 底层 GPT-4o
+    model:       'openai',
     temperature: mode === 'crazy' ? 1.1 : 0.88,
     seed:        Math.floor(Math.random() * 9999),
-    private:     true,               // 不公开到 Pollinations 图库
+    private:     true,
   };
 
   const res = await fetch('https://text.pollinations.ai/', {
@@ -450,14 +400,10 @@ async function callAI(input, role, mode) {
     throw new Error(`HTTP ${res.status}${txt ? ': ' + txt.slice(0,80) : ''}`);
   }
 
-  // Pollinations 直接返回纯文本
   const text = await res.text();
   if (!text || !text.trim()) throw new Error('返回内容为空');
 
-  return text.trim()
-    // 去掉 AI 可能加的引号
-    .replace(/^["「『]|["」』]$/g, '')
-    .trim();
+  return text.trim().replace(/^["「『]|["」』]$/g, '').trim();
 }
 
 /* ─────────────────────────────────────
@@ -501,18 +447,17 @@ function showState(s) {
 }
 
 function setAIDot(state) {
-  // state: 'ready' | 'thinking' | 'error'
   const dot   = document.getElementById('aiDot');
   const label = document.getElementById('aiLabel');
   if (state === 'thinking') {
-    dot.className   = 'ai-dot thinking';
+    dot.className     = 'ai-dot thinking';
     label.textContent = 'AI 思考中...';
   } else if (state === 'error') {
-    dot.className   = 'ai-dot error';
+    dot.className     = 'ai-dot error';
     label.textContent = '网络异常，稍后重试';
     setTimeout(() => setAIDot('ready'), 4000);
   } else {
-    dot.className   = 'ai-dot';
+    dot.className     = 'ai-dot';
     label.textContent = 'AI 已就绪 · 免费使用';
   }
 }
@@ -536,27 +481,22 @@ async function translate(mode) {
   isLoading = true;
   setAIDot('thinking');
   showState('loading');
-  document.getElementById('loadingHint').textContent = 'AI 思考中...';
 
   try {
     const text = await callAI(input, currentRole, mode);
     lastResult = text;
 
-    // badge
     const badge = document.getElementById('resultBadge');
-    if (mode === 'high') {
-      badge.innerHTML = `<span class="badge badge-eq">高情商 · ${currentRole}</span>`;
-    } else {
-      badge.innerHTML = `<span class="badge badge-crazy">发疯版 · ${currentRole}</span>`;
-    }
+    badge.innerHTML = mode === 'high'
+      ? `<span class="badge badge-eq">高情商 · ${currentRole}</span>`
+      : `<span class="badge badge-crazy">发疯版 · ${currentRole}</span>`;
 
     const resultEl = document.getElementById('resultText');
     resultEl.textContent = '';
     resultEl.classList.remove('cursor');
     showState('result');
-    document.getElementById('resultText').parentElement.classList.add('result-in');
+    resultEl.parentElement.classList.add('result-in');
 
-    // 打字机
     await typeWriter(resultEl, text, 5);
     setAIDot('ready');
 
@@ -566,8 +506,10 @@ async function translate(mode) {
 
     let msg = '网络异常，请检查网络后重试。';
     const em = e.message || '';
-    if (em.includes('429'))               msg = '请求太频繁了，稍等几秒再试。';
-    else if (em.includes('500') || em.includes('503')) msg = 'AI 服务暂时繁忙，点击重试。';
+    if (em.includes('429'))
+      msg = '请求太频繁了，稍等几秒再试。';
+    else if (em.includes('500') || em.includes('503'))
+      msg = 'AI 服务暂时繁忙，点击重试。';
     else if (em.includes('Failed to fetch') || em.includes('NetworkError'))
       msg = '无法连接 AI 服务，请检查网络。';
 
@@ -579,7 +521,7 @@ async function translate(mode) {
 }
 
 /* ─────────────────────────────────────
-   TYPE WRITER
+   TYPEWRITER
 ───────────────────────────────────── */
 async function typeWriter(el, text, speed) {
   el.classList.add('cursor');
@@ -616,7 +558,7 @@ async function copyResult() {
   btn.style.color = '#000';
   document.getElementById('toast').classList.add('show');
   setTimeout(() => {
-    btn.innerHTML  = '复制 <span style="font-size:12px">↗</span>';
+    btn.innerHTML   = '复制 <span style="font-size:12px">↗</span>';
     btn.style.color = '';
     document.getElementById('toast').classList.remove('show');
   }, 2000);
